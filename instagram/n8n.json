@@ -2,15 +2,19 @@
   "nodes": [
     {
       "parameters": {
-        "toolDescription": "This API endpoint handles HTTP POST requests to the /play route. The request is used to play a song on a mobile device by sending the song's name in the request body. The server expects the request to be a JSON object with a single key, name, whose value is the title of the song to be played. If the name field is missing from the request, the server returns a 400 Bad Request error with an error message. Upon receiving a valid request, the system processes the song name and initiates playback. The response will then be a 200 OK status along with a JSON object containing details about the requested song and its playback status.",
+        "toolDescription": "=The HTTP request is used to send a message to a specific Instagram username. It accepts both the username and the message in the request body. Once the request is processed, the response will always include \"success\": true. However, if either the username or the message is missing, the response will include \"sendStatus\": false along with the error message \"Username and message are required\". If both fields are valid, the request will simulate sending the message, and \"sendStatus\": true will be returned without any error message. To ensure proper functioning, the provided username must be a valid and accurate Instagram username, as the system is designed to send messages specifically to Instagram accounts",
         "method": "POST",
-        "url": "http://host.docker.internal:3000/play",
+        "url": "http://host.docker.internal:3000/data",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
-              "name": "name",
+              "name": "=username",
               "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            },
+            {
+              "name": "=message",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', ``, 'string') }}"
             }
           ]
         },
@@ -19,15 +23,15 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.2,
       "position": [
-        -144,
-        -368
+        -448,
+        -208
       ],
-      "id": "0d6866fc-bbe4-4002-aea3-8a7cac54471c",
-      "name": "play-song"
+      "id": "3791ce8a-a03d-42d2-9914-8806789cccdb",
+      "name": "Send-Message"
     }
   ],
   "connections": {
-    "play-song": {
+    "Send-Message": {
       "ai_tool": [
         []
       ]
