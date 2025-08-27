@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "toolDescription": "This API endpoint handles HTTP POST requests to the /play route. The request is used to play a song on a mobile device by sending the song's name in the request body. The server expects the request to be a JSON object with a single key, name, whose value is the title of the song to be played. If the name field is missing from the request, the server returns a 400 Bad Request error with an error message. Upon receiving a valid request, the system processes the song name and initiates playback. The response will then be a 200 OK status along with a JSON object containing details about the requested song and its playback status.",
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/play",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -144,
+        -368
+      ],
+      "id": "0d6866fc-bbe4-4002-aea3-8a7cac54471c",
+      "name": "play-song"
+    }
+  ],
+  "connections": {
+    "play-song": {
+      "ai_tool": [
+        []
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "44b6b0581231cf0648945e97c4b15adf52102210c0661bec54342c7dc57a02c3"
+  }
+}
